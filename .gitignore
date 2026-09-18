@@ -1,0 +1,15 @@
+# --- input data: not distributed, must be downloaded (see README) -------------
+data/**
+!data/
+!data/fig_2c/
+!data/fig_2c/.gitkeep
+
+# --- R / RStudio --------------------------------------------------------------
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+.Renviron
+
+# --- macOS --------------------------------------------------------------------
+.DS_Store
