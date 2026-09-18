@@ -1,4 +1,3 @@
-
 ########### fig_2c.R — Measured vs. modelled soil properties ###################
 ###
 ### Panel 1: soil pH          (WoSIS points vs. SoilGrids 1km phh2o)

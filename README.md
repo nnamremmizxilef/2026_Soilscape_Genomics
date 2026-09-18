@@ -4,7 +4,7 @@
 
 **[MANUSCRIPT TITLE]**
 
-*The manuscript is not submitted yet. title, abstract and DOI will be added once it is accepted.*
+*The manuscript is not submitted yet. Title, abstract and DOI will be added once it is accepted.*
 
 
 ## Abstract
@@ -14,16 +14,16 @@
 
 ## Authors & Affiliations:
 
-**Felix Zimmermann** (Swiss Federal Research Institute WSL, Birmensdorf, Switzerland; felix.zimmermann@wsl.ch; ORCID: 0009-0002-0762-2454)
+**Felix Zimmermann** (Swiss Federal Research Institute WSL, Birmensdorf, Switzerland; felix.zimmermann@wsl.ch; ORCID: [0009-0002-0762-2454](https://orcid.org/0009-0002-0762-2454))
 
-**Benjamin Dauphin** (Swiss Federal Research Institute WSL, Birmensdorf, Switzerland; benjamin.dauphin@wsl.ch; ORCID: 0000-0003-0982-4252)
+**Benjamin Dauphin** (Swiss Federal Research Institute WSL, Birmensdorf, Switzerland; benjamin.dauphin@wsl.ch; ORCID: [0000-0003-0982-4252](https://orcid.org/0000-0003-0982-4252))
 
 
 ## Content:
 
 This repository contains the code for **Figure 2 C**, which illustrates how well global soil
 databases reproduce local measurements. Measured topsoil values are compared with the
-corresponding predictions of global soil maps for 0-5 cm depth, for three properties:
+corresponding predictions of global soil maps for 0-5 cm depth, for three variables:
 
 * Soil pH and soil organic carbon: measured values from the WoSIS profile database
   (Batjes et al. 2024; n = 39,767 and 36,529 profiles), compared with SoilGrids 2.0
@@ -32,43 +32,50 @@ corresponding predictions of global soil maps for 0-5 cm depth, for three proper
   across years per sensor (n = 1,432), compared with the global soil temperature maps of
   Lembrechts et al. (2022).
 
-On the measurement side, all WoSIS layers starting at 0 cm and reaching no deeper than 10 cm
-are used and averaged per profile, litter and organic surface layers are excluded, and of the
-SoilTemp records only loggers between 0 and 5 cm with a completeness above 0.95 are kept.
+Regarding measurements, all WoSIS layers starting at 0 cm and reaching no deeper than 10 cm
+are used and averaged per profile, litter and organic surface layers are excluded. Of the
+SoilTemp records only loggers between 0 and 5 cm with a completeness above 95% are kept.
 Modelled values are extracted at each measurement location from the 1 km layers. The script
-produces the three scatter panels, the three insets showing the distribution of the
+produces three scatter panels, three insets showing the distribution of the
 deviations (modelled - measured), and a text file with the sample sizes, R², the mean and
-median bias, the typical deviation at a site (median absolute delta), the root mean square
-deviation and the bias binned along each gradient.
+median bias, the typical deviation at a site (median absolute delta), and the root mean square
+deviation.
+
+The deviations are additionally averaged within classes of the measured value. A single
+overall bias only tells us whether a map is too high or too low on average, but not whether
+it is equally off everywhere. Models trained on many sites tend to pull their predictions
+towards the middle of the range, so low values come out too high and high values too low.
+Averaging the deviations per class makes such a trend visible: if the class means change sign
+along the gradient, the map does not just carry a constant offset but distorts the gradient
+itself, which matters when the maps are used to characterise the conditions at a given site.
 
 
 ### Data:
 
 The input data are **not** part of this repository. They are third-party datasets with
-their own licences and citation requirements.
-The folder "data/fig_2c" is therefore empty after cloning and has to be filled before the
-script can be run. Please keep the file names listed below, as the script expects them.
+their own licences and citation requirements. The folder "data/fig_2c" is therefore empty 
+after cloning and has to be filled before the script can be run. Please keep the file names 
+as listed below.
 
 * Measured soil pH and SOC: "wosis_202312_phaq.tsv" (253 MB) and "wosis_202312_orgc.tsv"
   (190 MB). Both are contained in the [WoSIS snapshot December 2023](https://files.isric.org/public/wosis_snapshot/WoSIS_2023_December.zip)
   (ISRIC); download the zip archive and extract the two files.
 * Modelled soil pH and SOC: "phh2o_1km.tif" (79 MB) and "soc_1km.tif" (225 MB), the 1 km
   aggregated [SoilGrids](https://files.isric.org/soilgrids/latest/data_aggregated/1000m/)
-  layers for 0-5 cm (ISRIC). These two are downloaded by the script itself on the first
-  run, so they do not have to be obtained manually.
+  layers for 0-5 cm (ISRIC). These two are downloaded by the script itself (onky on the first
+  run), so they do not have to be obtained manually.
 * Modelled soil temperature: "SBIO1_Annual_Mean_Temperature_0_5cm.tif" (188 MB), from the
   [global soil bioclimatic variables](https://doi.org/10.5281/zenodo.7134169) of Lembrechts
   et al. (2022). The file is called "SBIO1_0_5cm_Annual_Mean_Temperature.tif" there and has
   to be renamed after downloading.
 * Measured soil temperature: "SoilTemp_yearly_cleaned_corrected.csv" (66 MB), the yearly
   aggregated and corrected sensor records of the SoilTemp network, from
-  ["Global Soil Temperature code and data", version 2](https://doi.org/10.5281/zenodo.7970893)
-  on Zenodo. Note that the corrected file is only in version 2 of that record, not in the
-  first one.
+  ["Global Soil Temperature code and data", version 2](https://doi.org/10.5281/zenodo.7970893). 
+  Note that the corrected file is only in version 2 of that record, not in the first one.
 * "wosis_topsoil.csv" is written by the script itself from the two WoSIS files and does not
   have to be supplied.
 
-If you use any of these layers, please cite the original data providers as well.
+If you use any of these layers, please cite the original publications as well.
 
 
 ### Scripts:
@@ -79,14 +86,15 @@ If you use any of these layers, please cite the original data providers as well.
 ### Results:
 
 * Here you can find the [three-panel figure](results/fig_2c/fig_2c.pdf) (soil pH, SOC,
-  soil temperature).
+  mean soil temperature).
 * Here you can find the delta-distribution insets for
   [pH](results/fig_2c/fig_2c_inset_pH.pdf), [SOC](results/fig_2c/fig_2c_inset_SOC.pdf) and
   [soil temperature](results/fig_2c/fig_2c_inset_temp.pdf).
 * Here you can find the [summary statistics](results/fig_2c/fig_2c_stats.txt) (sample sizes,
-  R², bias, typical and root mean square deviation, and biases binned along each gradient).
+  R², bias, typical and root mean square deviation, and the bias per class of the measured
+  value).
 
-The panels and insets are assembled into the final figure layout externally.
+Note: panels and insets were assembled into the final figure layout externally.
 
 
 ## To use our code:
@@ -111,7 +119,7 @@ available, another sans-serif family can be set in "theme_biorender" and "theme_
 
 The measurement networks contributed to the training of the products they are compared with
 here. The comparison therefore shows how well the maps agree with the observations that went
-into them; agreement at independent sites will be lower.
+into them and represent an upper bound of model correctness.
 
 
 ## References of the data sources:

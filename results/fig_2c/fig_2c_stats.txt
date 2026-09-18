@@ -1,7 +1,7 @@
 Fig. 2 C: measured vs. modelled soil properties
 measured: WoSIS layers 0 cm to max. 10 cm depth; SoilTemp loggers 0 to -5 cm
 modelled: SoilGrids and SBIO1 layers for 0-5 cm
-generated: 2026-09-18 15:01
+generated: 2026-09-18 16:45
 
 --- Soil pH (WoSIS vs. SoilGrids 1km phh2o) ---
 n            = 39767 profiles
@@ -18,7 +18,7 @@ mean bias    = +0.168 log10 units
 median delta = +0.154 log10 units
 median |delta| = 0.199 log10 units = 1.58-fold (typical deviation at a site)
 RMSD         = 0.338 log10 units = 2.18-fold
-binned bias by measured SOC (g/kg):
+bias by class of measured SOC (g/kg):
   (0,10]     +0.376
   (10,50]    +0.153
   (50,150]   -0.097
@@ -31,7 +31,7 @@ mean bias    = -1.231 degC
 median delta = -1.182 degC
 median |delta| = 1.497 degC (typical deviation at a site)
 RMSD         = 2.360 degC
-binned bias by measured temperature (degC):
+bias by class of measured temperature (degC):
   (-Inf,5]     -0.881
   (5,15]       -1.263
   (15,25]      -1.806
