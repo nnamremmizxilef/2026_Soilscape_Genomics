@@ -4,7 +4,7 @@
 
 **[MANUSCRIPT TITLE]**
 
-*The manuscript is not submitted yet. Title, authors, abstract and DOI will be added once it is.*
+*The manuscript is not submitted yet. title, abstract and DOI will be added once it is accepted.*
 
 
 ## Abstract
@@ -34,7 +34,7 @@ corresponding predictions of global soil maps for 0-5 cm depth, for three proper
 
 On the measurement side, all WoSIS layers starting at 0 cm and reaching no deeper than 10 cm
 are used and averaged per profile, litter and organic surface layers are excluded, and of the
-SoilTemp records only loggers between 0 and -5 cm with a completeness above 0.95 are kept.
+SoilTemp records only loggers between 0 and 5 cm with a completeness above 0.95 are kept.
 Modelled values are extracted at each measurement location from the 1 km layers. The script
 produces the three scatter panels, the three insets showing the distribution of the
 deviations (modelled - measured), and a text file with the sample sizes, R², the mean and
@@ -45,7 +45,7 @@ deviation and the bias binned along each gradient.
 ### Data:
 
 The input data are **not** part of this repository. They are third-party datasets with
-their own licences and citation requirements, and together they amount to roughly 1 GB.
+their own licences and citation requirements.
 The folder "data/fig_2c" is therefore empty after cloning and has to be filled before the
 script can be run. Please keep the file names listed below, as the script expects them.
 
@@ -102,7 +102,7 @@ The panels and insets are assembled into the final figure layout externally.
    window). The two SoilGrids layers are downloaded on the first run, which takes a while;
    the timeout is set to 600 s in the script. All outputs are written to "results/fig_2c".
 
-The script was run with R [VERSION] and needs the packages "terra", "ggplot2", "patchwork"
+The script was run with R v4.5.1 and needs the packages "terra", "ggplot2", "patchwork"
 and "data.table". The figures are exported with cairo_pdf in Helvetica; if that font is not
 available, another sans-serif family can be set in "theme_biorender" and "theme_inset".
 
