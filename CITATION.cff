@@ -1,0 +1,46 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite it as below."
+title: "2026_Soilscape_Genomics: code for the comparison of measured and modelled topsoil properties (Fig. 2 C)"
+abstract: >-
+  R code comparing measured topsoil pH, soil organic carbon and soil temperature
+  (WoSIS profile database, SoilTemp sensor network) with the corresponding
+  predictions of global soil maps (SoilGrids 2.0, global soil temperature maps).
+type: software
+authors:
+  - family-names: Zimmermann
+    given-names: Felix
+    email: felix.zimmermann@wsl.ch
+    orcid: "https://orcid.org/0009-0002-0762-2454"
+    affiliation: "Swiss Federal Institute for Forest, Snow and Landscape Research WSL, Birmensdorf, Switzerland"
+  - family-names: Dauphin
+    given-names: Benjamin
+    email: benjamin.dauphin@wsl.ch
+    orcid: "https://orcid.org/0000-0003-0982-4252"
+    affiliation: "Swiss Federal Institute for Forest, Snow and Landscape Research WSL, Birmensdorf, Switzerland"
+repository-code: "https://github.com/nnamremmizxilef/2026_Soilscape_Genomics"
+license: CC0-1.0
+version: 0.1.0
+date-released: "2026-09-18"
+keywords:
+  - soil properties
+  - SoilGrids
+  - WoSIS
+  - SoilTemp
+  - soil temperature
+  - soil organic carbon
+  - soil pH
+
+
+# preferred-citation:
+#   type: article
+#   title: "[MANUSCRIPT TITLE]"
+#   authors:
+#     - family-names: Zimmermann
+#       given-names: Felix
+#       orcid: "https://orcid.org/0009-0002-0762-2454"
+#     - family-names: Dauphin
+#       given-names: Benjamin
+#       orcid: "https://orcid.org/0000-0003-0982-4252"
+#   journal: "[JOURNAL]"
+#   year: [YEAR]
+#   doi: "[DOI]"
