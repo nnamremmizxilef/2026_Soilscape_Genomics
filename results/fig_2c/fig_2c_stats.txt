@@ -1,7 +1,7 @@
 Fig. 2 C: measured vs. modelled soil properties
 measured: WoSIS layers 0 cm to max. 10 cm depth; SoilTemp loggers 0 to -5 cm
 modelled: SoilGrids and SBIO1 layers for 0-5 cm
-generated: 2026-09-18 16:45
+generated: 2026-09-18 17:19
 
 --- Soil pH (WoSIS vs. SoilGrids 1km phh2o) ---
 n            = 39767 profiles

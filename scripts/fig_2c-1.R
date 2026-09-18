@@ -141,7 +141,7 @@ p1 <- ggplot(d_ph, aes(ph_measured, ph_sg)) +
               color = col_magenta, se = FALSE, linewidth = 1.6) +
   coord_equal(xlim = c(3, 10), ylim = c(3, 10), expand = FALSE) +
   theme_biorender +
-  xlab("Measured soil pH") + ylab("Modelled soil pH") +
+  xlab(expression(italic("in situ")~"measured soil pH")) + ylab("Modelled soil pH") +
   ggtitle("Soil pH") +
   annotate("text", x = 9.35, y = 9.75, label = "1:1", size = 3,
            family = "Helvetica", angle = 45) +
@@ -163,7 +163,7 @@ p2 <- ggplot(d_soc, aes(soc_measured, soc_sg)) +
   scale_y_log10() +
   coord_equal(xlim = c(1, 600), ylim = c(1, 600), expand = FALSE) +
   theme_biorender +
-  xlab("Measured SOC (g/kg)") + ylab("Modelled SOC (g/kg)") +
+  xlab(expression(italic("in situ")~"measured SOC (g/kg)")) + ylab("Modelled SOC (g/kg)") +
   ggtitle("Soil organic carbon") +
   annotate("text", x = 420, y = 520, label = "1:1", size = 3,
            family = "Helvetica", angle = 45) +
@@ -183,9 +183,9 @@ p3 <- ggplot(d_temp, aes(AnnualTs, Ts_map)) +
               color = col_magenta, se = FALSE, linewidth = 1.6) +
   coord_equal(xlim = c(-15, 35), ylim = c(-15, 35), expand = FALSE) +
   theme_biorender +
-  xlab("Measured soil temperature (°C)") +
+  xlab(expression(italic("in situ")~"measured soil temperature (°C)")) +
   ylab("Modelled soil temperature (°C)") +
-  ggtitle("Soil temperature") +
+  ggtitle("Mean soil temperature") +
   annotate("text", x = 30.5, y = 33, label = "1:1", size = 3,
            family = "Helvetica", angle = 45) +
   annotate("text", x = -13, y = 32, hjust = 0, vjust = 1, size = 3.5,
